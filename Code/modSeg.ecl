@@ -1,10 +1,10 @@
 ﻿IMPORT $,ML_Core;
-// Considere os primeiros 5000 registros como amostra de treinamento
+// 5,000 records for the training sample
 myTrainData := $.modPrep.myDataPrep[1..5000];  
-// Considere os 2000 registros seguintes como amostra de teste
+// 2,000 records for the test sample
 myTestData  := $.modPrep.myDataPrep[5001..7000]; 
 																	
-// Conversão matricial dos campos numéricos
+// Converting the cleaned data to numeric field
 ML_Core.ToField(myTrainData, myTrainDataNF);
 ML_Core.ToField(myTestData, myTestDataNF);
 // OUTPUT(myTrainDataNF);

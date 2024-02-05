@@ -1,7 +1,7 @@
 ﻿IMPORT $;
-//Referência aos dados em outro arquivo de definição ECL 
+
 Property := $.modFile.File;
-//Tabulação cruzada dos preços médios de imóveis por Estado
+// Crosstab report of average price per state
 OutRec := RECORD
 	Property.state;
 	UNSIGNED4 avg_value := AVE(GROUP,Property.total_value);

@@ -1,5 +1,5 @@
 ﻿EXPORT modFile := MODULE
-// Estrutura de campos do dataset bruto
+// Raw dataset schema
 		EXPORT Layout := RECORD
 			 UNSIGNED8 personid;
 			 UNSIGNED4 propertyid;
@@ -23,6 +23,6 @@
 			 UNSIGNED2 half_baths;
 			 UNSIGNED3 year_built;
 		END;
-		// Declaração do dataset bruto
-		EXPORT File := DATASET('~propriedadesXXX',Layout,CSV);  //Substitua XXX pelas iniciais do seu nome completo
+		// Raw dataset declaration
+		EXPORT File := DATASET('~propertiesXXX',Layout,CSV);  
 END;

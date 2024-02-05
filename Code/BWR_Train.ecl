@@ -1,15 +1,15 @@
 ﻿IMPORT $;
 IMPORT ML_Core;
 IMPORT LearningTrees AS LT;
-// Selecione o algoritmo
+// Selecting the algortihm
 myLearnerR    := LT.RegressionForest(10,,10,[1]); 
 // myLearnerR    := LT.RegressionForest(,,,[1]); 
-// Obtenha o modelo treinado
+// Get the trained model
 myModelR      := myLearnerR.GetModel($.modSeg.myIndTrainDataNF,$.modSeg.myDepTrainDataNF);
-OUTPUT(myModelR,,'~mymodelXXX',NAMED('ModeloTreinado'),OVERWRITE); //Substitua XXX pelas iniciais do seu nome completo
-// Teste o modelo
+OUTPUT(myModelR,,'~mymodelXXX',NAMED('TrainedModel'),OVERWRITE); 
+// Test the model
 predictedDeps := myLearnerR.Predict(myModelR, $.modSeg.myIndTestDataNF);
-OUTPUT(predictedDeps,NAMED('ValoresPrevistos'));
-// Avalie o modelo
+OUTPUT(predictedDeps,NAMED('PredictedModel'));
+// Assess the model
 assessmentR   := ML_Core.Analysis.Regression.Accuracy(predictedDeps,$.modSeg.myDepTestDataNF);
-OUTPUT(assessmentR,NAMED('AvaliacaodoModelo'));
+OUTPUT(assessmentR,NAMED('ModelAssessment'));
